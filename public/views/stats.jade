@@ -1,0 +1,75 @@
+doctype html
+html
+	head
+		title Stats | Real-Time Analytics
+		include ./includes/stat_head.jade
+	body
+		.container
+			header
+				h1 Hi welcome glad to have you hope you have fun at Cameron's stats thing
+
+			hr
+
+			section.row
+				.col-md-4
+					h2 Stats
+					ul.nav.nav-pills.nav-stacked
+						li.active
+							a.bg-success
+								span.badge.pull-right#connections
+								Current Connections
+
+					hr
+
+					h2 Page Aggregates
+
+					select#host.form-control
+						option(value="localhost") localhost
+
+					#page-btns
+						.btn-group
+							button.btn.btn-default.dropdown-toggle(data-toggle="dropdown") Index 
+								span.caret
+							ul.dropdown-menu(role="menu")
+								li
+									a(data-page="index" data-action="display") Display
+									a(data-page="index" data-action="aggregate") Aggregate
+						.btn-group
+							button.btn.btn-default.dropdown-toggle(data-toggle="dropdown") About 
+								span.caret
+							ul.dropdown-menu(role="menu")
+								li
+									a(data-page="about" data-action="display") Display
+									a(data-page="about" data-action="aggregate") Aggregate
+						
+					hr
+
+				.col-md-8
+					h2 Graph
+					h6 Currently graphing: 
+						span#current-graph
+					small.text-muted Top of document (not window)
+					.canvas-wrap
+						canvas#myCanvas(width=600 height=600)
+					small.text-muted.text-right Bottom of document (not window)
+
+			hr
+
+			section
+				h2 Pageviews
+				table#pageviews.table.table-bordered.table-condensed
+					tr
+						thead
+							td URL
+							td IP
+							td Time
+					tr
+						td 
+							a.draw-canvas(data-ip='127.0.0.1' data-page="index") index
+						td Local
+						td All day baby
+					tr
+						td 
+							a.draw-canvas(data-ip='127.0.0.1' data-page="about") about
+						td Local
+						td All day baby
